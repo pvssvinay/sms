@@ -5,8 +5,8 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/pvssvinay/studentmarkservice'
+                git branch: 'master',
+                    url: 'https://github.com/pvssvinay/sms'
             }
         }
 
