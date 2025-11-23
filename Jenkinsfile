@@ -39,7 +39,7 @@ pipeline {
         stage('K8s Deployment') {
             steps {
                 script {
-                    withEnv(["KUBECONFIG=C:\Users\pvssv\.kube\config"]) {
+                    withEnv(["KUBECONFIG=C:/Users/pvssv/.kube/config"]) {
 
                         echo "Applying Kubernetes manifests..."
 
