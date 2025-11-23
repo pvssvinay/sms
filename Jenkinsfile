@@ -40,9 +40,6 @@ pipeline {
             steps {
                 script {
 
-                    // KUBECONFIG must be Windows style path
-                    withEnv(["KUBECONFIG=%USERPROFILE%\\.kube\\config"]) {
-
                         echo "Applying Kubernetes manifests..."
 
                         bat "kubectl apply -f namespace.yaml --validate=false"
@@ -50,7 +47,6 @@ pipeline {
                         bat "kubectl apply -f service.yaml --validate=false"
 
                         bat "kubectl rollout status deployment/sms-deployment -n sms-namespace"
-                    }
                 }
             }
         }
