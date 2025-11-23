@@ -39,6 +39,7 @@ pipeline {
         stage('K8s Deployment') {
             steps {
                 script {
+                    withEnv(["KUBECONFIG=C:\Users\pvssv\.kube\config"]) {
 
                         echo "Applying Kubernetes manifests..."
 
@@ -47,6 +48,7 @@ pipeline {
                         bat "kubectl apply -f service.yaml --validate=false"
 
                         bat "kubectl rollout status deployment/sms-deployment -n sms-namespace"
+                    }
                 }
             }
         }
